@@ -77,3 +77,17 @@ python ingest_data.py
 ```
 
 You should see "✅ Ingestion Complete!"
+
+## 🛠️ Tool Definitions
+
+The agent has access to **two custom tools** defined in `multi_agent.py`:
+
+### 1. `consult_medical_database`
+- **Description:** Performs a hybrid search (Vector + Cypher) on the Neo4j Knowledge Graph.
+- **Input:** Natural language symptom description (e.g., "headache and fever").
+- **Output:** Structured text containing matching diseases, symptoms, and precautions.
+
+### 2. `calculate_bmi`
+- **Description:** A utility tool for calculating Body Mass Index.
+- **Input:** `weight_kg` (float), `height_m` (float).
+- **Output:** The calculated BMI value.
