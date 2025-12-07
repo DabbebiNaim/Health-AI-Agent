@@ -40,3 +40,36 @@ Follow these steps to run the project locally.
 ```bash
 git clone https://github.com/DabbebiNaim/Health-AI-Agent.git
 cd Health-AI-Agent
+
+### 3. Environment Setup
+Windows:
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+Mac/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+Install the required libraries:
+```bash
+pip install -r requirements.txt
+
+### 4. Configuration (.env)
+Create a .env file in the root directory and add your credentials:
+
+# Groq API Key (for the LLM)
+GROQ_API_KEY=gsk_your_key_here
+
+# Neo4j Local Database Credentials
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=your_database_password
+
+### 5. Database Ingestion
+This script loads the raw CSV data, generates vector embeddings, and populates the Neo4j Graph.
+1-Make sure your Neo4j Database is Running.
+2-Run the ingestion script:
+```bash
+python ingest_data.py
+
+You should see "✅ Ingestion Complete!"
